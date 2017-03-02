@@ -1,0 +1,33 @@
+#!/bin/sh
+
+dir="$(pwd)"
+bin="$0"
+while [ -L "${bin}" ]
+do
+    x="$(readlink "${bin}")"
+    cd "$(dirname "${bin}")"
+    bin="${x}"
+done
+cd "$(dirname "${bin}")"/..
+root="$(pwd)"
+
+npm="$(which npm)"
+if [ ! -z "${npm}" ]
+then
+    cd "$(dirname "${npm}")"/../lib
+    npm="$(pwd)/node_modules"
+    lib="${root}/lib"
+    mod="${root}/node_modules"
+    cwd="${dir}/node_modules"
+    export NODE_PATH="$NODE_PATH:${mod}:${lib}:${npm}"
+    export LUA_PATH="$LUA_PATH;${cwd}/?/init.lua;${cwd}/?/?.lua;${cwd}/?.lua"
+    export LUA_PATH="$LUA_PATH;${mod}/?/init.lua;${mod}/?/?.lua;${mod}/?.lua"
+    export LUA_PATH="$LUA_PATH;${lib}/?/init.lua;${lib}/?/?.lua;${lib}/?.lua"
+    export LUA_PATH="$LUA_PATH;${npm}/?/init.lua;${npm}/?/?.lua;${npm}/?.lua"
+fi
+cd "${dir}"
+
+export LUMEN_PATH="${LUMEN_PATH:-${root}}"
+export LUMEN_HOME="${root}/lib/lumen"
+export LUMEN_BIN="${LUMEN_HOME}/bin/lumen"
+exec "${LUMEN_BIN}" "$@"
