@@ -1,3 +1,7 @@
 [submodule "lib/lumen"]
 	path = lib/lumen
 	url = https://github.com/sctb/lumen
+[submodule "lib/lycan"]
+	path = lib/lycan
+	url = https://github.com/shawwn/lumen
+	branch = lycan
