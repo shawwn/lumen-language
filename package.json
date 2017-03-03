@@ -1,13 +1,17 @@
 {
   "name": "lumen-language",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Lisp for Lua and JavaScript",
   "main": "lib/lumen/bin/lumen.js",
   "bin": {
     "lumen-language": "bin/lumen-language",
     "lumen-node": "bin/lumen-node",
     "lumen": "bin/lumen-language",
-    "ljs": "bin/lumen-node"
+    "ljs": "bin/lumen-node",
+    "lycan-language": "bin/lycan-language",
+    "lycan-node": "bin/lycan-node",
+    "lycan": "bin/lycan-language",
+    "lycanjs": "bin/lycan-node"
   },
   "scripts": {
     "test": "make test",
