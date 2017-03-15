@@ -19,7 +19,7 @@ then
     lib="${root}/lib"
     mod="${root}/node_modules"
     cwd="${dir}/node_modules"
-    export NODE_PATH="$NODE_PATH:${mod}:${lib}:${npm}"
+    export NODE_PATH="$NODE_PATH:${cwd}:${mod}:${lib}:${npm}"
     export LUA_PATH="$LUA_PATH;${cwd}/?/init.lua;${cwd}/?/?.lua;${cwd}/?.lua"
     export LUA_PATH="$LUA_PATH;${mod}/?/init.lua;${mod}/?/?.lua;${mod}/?.lua"
     export LUA_PATH="$LUA_PATH;${lib}/?/init.lua;${lib}/?/?.lua;${lib}/?.lua"
