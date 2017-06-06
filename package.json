@@ -1,6 +1,6 @@
 {
   "name": "lumen-language",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A Lisp for Lua and JavaScript",
   "main": "lib/lumen/bin/lumen.js",
   "bin": {
